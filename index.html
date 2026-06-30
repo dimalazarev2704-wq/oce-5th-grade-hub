@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCE 5th Grade Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Olive Chapel Elementary</h1>
+        <h2>5th Grade Student & Parent Portal</h2>
+        <p id="current-date">Loading date...</p>
+    </header>
+
+    <nav class="tab-menu">
+        <button class="tab-btn active" onclick="openTab(event, 'home-tab')">🏠 Home / Safety Patrol</button>
+        <button class="tab-btn" onclick="openTab(event, 'sullivan-tab')">Ms. Sullivan</button>
+        <button class="tab-btn" onclick="openTab(event, 'mcjones-tab')">Ms. McJones</button>
+        <button class="tab-btn" onclick="openTab(event, 'pittman-tab')">Ms. Pittman</button>
+        <button class="tab-btn" onclick="openTab(event, 'hermanson-tab')">Ms. Hermanson</button>
+        <button class="tab-btn" onclick="openTab(event, 'christensen-tab')">Ms. Christensen</button>
+        <button class="tab-btn" onclick="openTab(event, 'martin-tab')">Mr. Martin</button>
+    </nav>
+
+    <main>
+        <section id="home-tab" class="tab-content active-content">
+            <div class="grid-container">
+                <div class="card">
+                    <h2>Today's Safety Patrol Team</h2>
+                    <div id="team-display" class="team-name">Checking the schedule...</div>
+                    <h3>On-Duty Roster</h3>
+                    <ul id="roster-list"></ul>
+                </div>
+
+                <div class="card">
+                    <h2>🔍 Look Up Your Team</h2>
+                    <p>Enter the student's first and last name to find their assigned rotation group.</p>
+                    <div class="search-box">
+                        <input type="text" id="student-search" placeholder="e.g. Oakley Rillo">
+                        <button onclick="searchStudent()">Search</button>
+                    </div>
+                    <div id="search-result" class="result-box"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sullivan-tab" class="tab-content">
+            <div class="card">
+                <h2>Ms. Sullivan's Classroom</h2>
+                <p class="description">Welcome to 5th grade! Track your daily learning blocks and specials rotation schedules here.</p>
+                <div class="schedule-block">
+                    <h3>Daily Schedule</h3>
+                    <p>⏰ Schedule details coming soon!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="mcjones-tab" class="tab-content">
+            <div class="card">
+                <h2>Ms. McJones's Classroom</h2>
+                <p class="description">Welcome to 5th grade! Track your daily learning blocks and specials rotation schedules here.</p>
+            </div>
+        </section>
+
+        <section id="pittman-tab" class="tab-content">
+            <div class="card">
+                <h2>Ms. Pittman's Classroom</h2>
+                <p class="description">Welcome to 5th grade! Track your daily learning blocks and specials rotation schedules here.</p>
+            </div>
+        </section>
+
+        <section id="hermanson-tab" class="tab-content">
+            <div class="card">
+                <h2>Ms. Hermanson's Classroom</h2>
+                <p class="description">Welcome to 5th grade! Track your daily learning blocks and specials rotation schedules here.</p>
+            </div>
+        </section>
+
+        <section id="christensen-tab" class="tab-content">
+            <div class="card">
+                <h2>Ms. Christensen's Classroom</h2>
+                <p class="description">Welcome to 5th grade! Track your daily learning blocks and specials rotation schedules here.</p>
+            </div>
+        </section>
+
+        <section id="martin-tab" class="tab-content">
+            <div class="card">
+                <h2>Mr. Martin's Classroom</h2>
+                <p class="description">Welcome to 5th grade! Track your daily learning blocks and specials rotation schedules here.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
