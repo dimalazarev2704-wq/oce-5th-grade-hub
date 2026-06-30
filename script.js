@@ -1,4 +1,4 @@
-// 1. Safety Patrol Roster Data
+// 1. Safety Patrol Roster Data Matrix
 const rosters = {
     "Mighty Shrimp": [
         "Oakley Rillo", "Campbell Cabaleiro", "Wyatt Ellison", "Caleb Kanter", 
@@ -22,7 +22,7 @@ const rosters = {
     ]
 };
 
-// 2. Full Rotation Dates Map
+// 2. Automated Rotation Schedules Date Targets Mapping
 const schedule = [
     { start: "2025-07-06", end: "2025-07-31", team: "Mighty Shrimp", bg: "#e67e22", text: "#fff" },
     { start: "2025-08-03", end: "2025-08-28", team: "Fearless Sea Turtles", bg: "#2ecc71", text: "#fff" },
@@ -32,9 +32,8 @@ const schedule = [
     { start: "2025-12-01", end: "2025-12-18", team: "Dynamic Starfish", bg: "#f1c40f", text: "#333" }
 ];
 
-// Tab Swapping Controller
+// Tab Switching Mechanism Engine Control
 function openTab(evt, tabId) {
-    // Stop the code if they click the active tab (Bug Fix!)
     if (evt.currentTarget.classList.contains("active")) return; 
 
     const tabContents = document.getElementsByClassName("tab-content");
@@ -49,7 +48,7 @@ function openTab(evt, tabId) {
     evt.currentTarget.classList.add("active");
 }
 
-// Search Feature Logic (Bug Fix Included!)
+// Full Substring Database Parsing Engines Architecture
 function searchStudent() {
     const input = document.getElementById('student-search').value.trim().toLowerCase();
     const resultBox = document.getElementById('search-result');
@@ -63,7 +62,6 @@ function searchStudent() {
     let trueStudentName = "";
 
     for (let team in rosters) {
-        // Checks if the input matches the exact name, or starts with the first name
         let match = rosters[team].find(s => {
             const studentLower = s.toLowerCase();
             return studentLower === input || studentLower.startsWith(input + " ") || studentLower.endsWith(" " + input);
@@ -79,7 +77,7 @@ function searchStudent() {
     if (foundTeam) {
         let teamColor = foundTeam === "Mighty Shrimp" ? "#e67e22" : foundTeam === "Fearless Sea Turtles" ? "#2ecc71" : "#d4af37";
         resultBox.innerHTML = `
-            <div style="border-left: 5px solid ${teamColor}; padding-left: 10px;">
+            <div style="border-left: 5px solid ${teamColor}; padding-left: 10px; background: #fafafa; padding: 15px; border-radius: 4px;">
                 <p><strong>${trueStudentName}</strong> has been found!</p>
                 <p>Assigned Group: <span style="color:${teamColor}; font-weight:bold;">${foundTeam}</span></p>
             </div>
@@ -89,7 +87,7 @@ function searchStudent() {
     }
 }
 
-// Auto-run Calendar Controller
+// Main Window Live Environment Calculation Engine
 function initDashboard() {
     const today = new Date();
     document.getElementById('current-date').innerText = today.toLocaleDateString('en-US', { 
