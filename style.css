@@ -1,93 +1,225 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
+/* Modern Reset & Base Styling */
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
     padding: 20px;
 }
 
+/* Header Section */
 header {
     text-align: center;
-    margin-bottom: 25px;
+    margin: 20px 0 35px 0;
 }
 
-h1 { color: #1a365d; margin-bottom: 5px; }
-h2 { color: #2b6cb0; margin-top: 0; font-weight: 400; }
-#current-date { font-size: 1.1rem; color: #4a5568; font-weight: bold; }
+header h1 {
+    color: #0f172a;
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+}
 
-/* Tabs Navigation Styling */
+header h2 {
+    color: #3b82f6;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#current-date {
+    font-size: 0.95rem;
+    color: #64748b;
+    font-weight: 500;
+    background: #ffffff;
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Modern Navigation Tabs Menu */
 .tab-menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-    border-bottom: 2px solid #cbd5e0;
-    padding-bottom: 10px;
+    gap: 8px;
+    margin: 0 auto 35px auto;
+    max-width: 1000px;
+    background: #e2e8f0;
+    padding: 6px;
+    border-radius: 12px;
 }
 
 .tab-btn {
-    background-color: #e2e8f0;
+    background: transparent;
     border: none;
-    padding: 12px 20px;
-    font-size: 1rem;
+    padding: 10px 18px;
+    font-size: 0.95rem;
     font-weight: 600;
-    color: #4a5568;
+    color: #475569;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.tab-btn:hover { background-color: #cbd5e0; }
-.tab-btn.active { background-color: #3182ce; color: white; }
+.tab-btn:hover {
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.5);
+}
 
-/* Content Sections Tab Switching logic */
-.tab-content { display: none; width: 100%; max-width: 1100px; margin: 0 auto; }
-.tab-content.active-content { display: block; }
+.tab-btn.active {
+    background: #ffffff;
+    color: #2563eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
 
-/* Grid Dashboard layout */
+/* Tab Content Grid Layout */
+.tab-content {
+    display: none;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active-content {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
 }
 
+/* Premium Card Designs */
 .card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    border: 1px solid #f1f5f9;
 }
 
+.card h2 {
+    color: #0f172a;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* Roster Display Components */
 .team-name {
-    font-size: 1.8rem;
-    font-weight: bold;
-    padding: 15px;
-    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    padding: 16px;
+    border-radius: 12px;
     text-align: center;
-    margin: 15px 0;
+    margin: 20px 0;
+    letter-spacing: -0.3px;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
 }
 
-#roster-list { list-style: none; padding: 0; max-height: 250px; overflow-y: auto; }
-#roster-list li { padding: 8px 12px; border-bottom: 1px solid #edf2f7; font-size: 1.05rem; }
+#roster-list {
+    list-style: none;
+    padding: 0;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid #f1f5f9;
+    border-radius: 8px;
+    background: #fafafa;
+}
 
-/* Search Engine Styling */
-.search-box { display: flex; gap: 10px; margin-top: 20px; }
+#roster-list li {
+    padding: 10px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #334155;
+}
+
+#roster-list li:last-child {
+    border-bottom: none;
+}
+
+/* Elegant Search Engine Input Box */
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0 0 0;
+}
+
 .search-box input {
     flex: 1;
-    padding: 12px;
-    border: 2px solid #cbd5e0;
-    border-radius: 6px;
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.search-box input:focus {
+    border-color: #3b82f6;
+}
+
+.search-box button {
+    padding: 14px 24px;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.search-box button:hover {
+    background-color: #1d4ed8;
+}
+
+.result-box {
+    margin-top: 20px;
     font-size: 1rem;
 }
-.search-box button {
-    padding: 12px 24px;
-    background-color: #3182ce;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
+
+/* Teacher Profiles Area */
+.description {
+    margin-bottom: 25px;
+    font-size: 1.05rem !important;
+    color: #475569 !important;
 }
-.search-box button:hover { background-color: #2b6cb0; }
-.result-box { margin-top: 20px; font-size: 1.1rem; line-height: 1.5; }
+
+.schedule-block {
+    background: #f8fafc;
+    border-left: 4px solid #3b82f6;
+    padding: 18px;
+    border-radius: 0 12px 12px 0;
+    margin-top: 20px;
+}
+
+.schedule-block h3 {
+    font-size: 1.1rem;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
