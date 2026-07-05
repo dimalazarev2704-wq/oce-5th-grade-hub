@@ -1,4 +1,4 @@
-// 1. Safety Patrol Roster with Time Shifts and Station Locations
+// 1. Safety Patrol Roster Matrix Data Mapping
 const rosters = {
     "Mighty Shrimp": [
         { name: "Oakley Rillo", shift: "AM", station: "Carpool (Front)" },
