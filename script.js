@@ -67,9 +67,9 @@ const rosters = {
     ]
 };
 
-// 2. Active Scheduled Calendar Blocks (Includes July 2026 Target)
+// 2. Active Scheduled Calendar Blocks (Starts on July 7th)
 const schedule = [
-    { start: "2026-07-01", end: "2026-08-31", team: "Mighty Shrimp", bg: "#e67e22", text: "#fff" },
+    { start: "2026-07-07", end: "2026-08-31", team: "Mighty Shrimp", bg: "#e67e22", text: "#fff" },
     { start: "2026-09-01", end: "2026-10-06", team: "Dynamic Starfish", bg: "#f1c40f", text: "#333" },
     { start: "2026-10-07", end: "2026-10-31", team: "Mighty Shrimp", bg: "#e67e22", text: "#fff" },
     { start: "2026-11-01", end: "2026-11-30", team: "Fearless Sea Turtles", bg: "#2ecc71", text: "#fff" },
@@ -97,7 +97,7 @@ function openTab(evt, tabId) {
     }
 }
 
-// 4. Student Search Bar Engine
+// 4. Smart Multi-Match Student Search Engine
 function searchStudent() {
     const input = document.getElementById('student-search').value.trim().toLowerCase();
     const resultBox = document.getElementById('search-result');
@@ -107,33 +107,38 @@ function searchStudent() {
         return;
     }
 
-    let foundTeam = null;
-    let studentData = null;
+    let matches = [];
 
     for (let team in rosters) {
-        let match = rosters[team].find(s => {
-            let studentName = s.name.toLowerCase();
-            return studentName === input || studentName.startsWith(input + " ") || studentName.endsWith(" " + input);
+        rosters[team].forEach(student => {
+            let studentName = student.name.toLowerCase();
+            if (studentName.includes(input)) {
+                matches.push({
+                    teamName: team,
+                    data: student
+                });
+            }
         });
-        if (match) {
-            foundTeam = team;
-            studentData = match;
-            break;
-        }
     }
 
-    if (foundTeam && studentData) {
-        let teamColor = foundTeam === "Mighty Shrimp" ? "#e67e22" : foundTeam === "Fearless Sea Turtles" ? "#2ecc71" : "#d4af37";
-        resultBox.innerHTML = `
-            <div style="border-left: 5px solid ${teamColor}; background: #f8fafc; padding: 18px; border-radius: 8px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-                <p style="margin: 0 0 8px 0; font-size: 16px;"><strong>${studentData.name}</strong></p>
-                <p style="margin: 4px 0;">✨ <strong>Group:</strong> <span style="color:${teamColor}; font-weight:800;">${foundTeam}</span></p>
-                <p style="margin: 4px 0;">⏰ <strong>When They Go:</strong> <span style="font-weight:600; color:#334155;">${studentData.shift} Shift</span></p>
-                <p style="margin: 4px 0;">📍 <strong>Station Assignment:</strong> <span style="font-weight:600; color:#334155;">${studentData.station}</span></p>
-            </div>
-        `;
+    if (matches.length > 0) {
+        let htmlOutput = "";
+        
+        matches.forEach(item => {
+            let teamColor = item.teamName === "Mighty Shrimp" ? "#e67e22" : item.teamName === "Fearless Sea Turtles" ? "#2ecc71" : "#d4af37";
+            htmlOutput += `
+                <div style="border-left: 5px solid ${teamColor}; background: #f8fafc; padding: 18px; border-radius: 8px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <p style="margin: 0 0 8px 0; font-size: 16px;"><strong>${item.data.name}</strong></p>
+                    <p style="margin: 4px 0;">✨ <strong>Group:</strong> <span style="color:${teamColor}; font-weight:800;">${item.teamName}</span></p>
+                    <p style="margin: 4px 0;">⏰ <strong>When They Go:</strong> <span style="font-weight:600; color:#334155;">${item.data.shift} Shift</span></p>
+                    <p style="margin: 4px 0;">📍 <strong>Station Assignment:</strong> <span style="font-weight:600; color:#334155;">${item.data.station}</span></p>
+                </div>
+            `;
+        });
+        
+        resultBox.innerHTML = htmlOutput;
     } else {
-        resultBox.innerHTML = "<p style='color:#e67e22; font-weight: 500; margin-top: 15px;'>Student name not found. Try typing just their first name.</p>";
+        resultBox.innerHTML = "<p style='color:#e67e22; font-weight: 500; margin-top: 15px;'>No student names matched your search. Double check spelling and try again.</p>";
     }
 }
 
@@ -182,7 +187,7 @@ function initDashboard() {
                 display.innerText = "No Safety Patrol Rotation Today";
                 display.style.backgroundColor = "#cbd5e0";
                 display.style.color = "#4a5568";
-                list.innerHTML = "<li style='text-align: center; color: #64748b; padding: 20px;'>Enjoy your day off!</li>";
+                list.innerHTML = "<li style='text-align: center; color: #64748b; padding: 20px;'>Enjoy your day off before rotation tracks launch!</li>";
             }
         }
 
