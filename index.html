@@ -18,18 +18,35 @@
         
         <section class="tabs-container">
             <nav class="tab-navigation-bar">
-                <button class="tab-btn active" onclick="openTab(event, 'sullivan-tab')">🏠 Ms. Sullivan</button>
+                <button class="tab-btn active" onclick="openTab(event, 'home-tab')">🏠 Home</button>
+                <button class="tab-btn" onclick="openTab(event, 'sullivan-tab')">Ms. Sullivan</button>
                 <button class="tab-btn" onclick="openTab(event, 'mcjones-tab')">Ms. McJones</button>
                 <button class="tab-btn" onclick="openTab(event, 'pittman-tab')">Ms. Pittman</button>
                 <button class="tab-btn" onclick="openTab(event, 'hermanson-tab')">Ms. Hermanson</button>
                 <button class="tab-btn" onclick="openTab(event, 'christensen-tab')">Ms. Christensen</button>
                 <button class="tab-btn" onclick="openTab(event, 'martin-tab')">Mr. Martin</button>
+                <button class="tab-btn" onclick="openTab(event, 'patrol-tab')">🛡️ Safety Patrol</button>
             </nav>
 
-            <div id="sullivan-tab" class="tab-content active-content">
+            <div id="home-tab" class="tab-content active-content">
+                <div class="welcome-section">
+                    <h3>Welcome to the 5th Grade Hub!</h3>
+                    <p>This portal is designed to keep Olive Chapel Elementary fifth graders and parents completely organized. Here, you can quickly jump between different teacher schedules, track daily routines, and check on special rotations.</p>
+                    
+                    <div class="guide-box">
+                        <h4>📋 How to Use This Website</h4>
+                        <ul>
+                            <li><strong>Teacher Tabs:</strong> Click on any teacher's name above to see their complete Monday–Thursday and Friday schedules, including exact times for lunch, recess, and their classroom's specific **Specials Rotation**.</li>
+                            <li><strong>Safety Patrol Tab:</strong> Check out the dedicated tracking tab to see which group is active on duty today and use the smart search bar to find assignments by student name.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sullivan-tab" class="tab-content">
                 <div class="schedule-header">
-                    <h3>Ms. Sullivan's Classroom Schedule</h3>
-                    <p>Active weekly class rotation layout.</p>
+                    <h3>Ms. Sullivan's Classroom</h3>
+                    <p>✨ <strong>Class Specials Rotation:</strong> Day 1: PE / Day 2: Music / Day 3: Media / Day 4: Art / Day 5: Guidance</p>
                 </div>
                 <div class="schedule-grid">
                     <div class="schedule-block">
@@ -64,8 +81,8 @@
 
             <div id="mcjones-tab" class="tab-content">
                 <div class="schedule-header">
-                    <h3>Ms. McJones's Classroom Schedule</h3>
-                    <p>Active weekly class rotation layout.</p>
+                    <h3>Ms. McJones's Classroom</h3>
+                    <p>✨ <strong>Class Specials Rotation:</strong> Day 1: Music / Day 2: Media / Day 3: Art / Day 4: Guidance / Day 5: PE</p>
                 </div>
                 <div class="schedule-grid">
                     <div class="schedule-block">
@@ -100,8 +117,8 @@
 
             <div id="pittman-tab" class="tab-content">
                 <div class="schedule-header">
-                    <h3>Ms. Pittman's Classroom Schedule</h3>
-                    <p>Active weekly class rotation layout.</p>
+                    <h3>Ms. Pittman's Classroom</h3>
+                    <p>✨ <strong>Class Specials Rotation:</strong> Day 1: Media / Day 2: Art / Day 3: Guidance / Day 4: PE / Day 5: Music</p>
                 </div>
                 <div class="schedule-grid">
                     <div class="schedule-block">
@@ -136,8 +153,8 @@
 
             <div id="hermanson-tab" class="tab-content">
                 <div class="schedule-header">
-                    <h3>Ms. Hermanson's Classroom Schedule</h3>
-                    <p>Active weekly class rotation layout.</p>
+                    <h3>Ms. Hermanson's Classroom</h3>
+                    <p>✨ <strong>Class Specials Rotation:</strong> Day 1: Art / Day 2: Guidance / Day 3: PE / Day 4: Music / Day 5: Media</p>
                 </div>
                 <div class="schedule-grid">
                     <div class="schedule-block">
@@ -172,8 +189,8 @@
 
             <div id="christensen-tab" class="tab-content">
                 <div class="schedule-header">
-                    <h3>Ms. Christensen's Classroom Schedule</h3>
-                    <p>Active weekly class rotation layout.</p>
+                    <h3>Ms. Christensen's Classroom</h3>
+                    <p>✨ <strong>Class Specials Rotation:</strong> Day 1: Guidance / Day 2: PE / Day 3: Music / Day 4: Media / Day 5: Art</p>
                 </div>
                 <div class="schedule-grid">
                     <div class="schedule-block">
@@ -208,8 +225,8 @@
 
             <div id="martin-tab" class="tab-content">
                 <div class="schedule-header">
-                    <h3>Mr. Martin's Classroom Schedule</h3>
-                    <p>Active weekly class rotation layout.</p>
+                    <h3>Mr. Martin's Classroom</h3>
+                    <p>✨ <strong>Class Specials Rotation:</strong> Day 1: Technology / Day 2: Technology / Day 3: Technology / Day 4: Technology / Day 5: Technology</p>
                 </div>
                 <div class="schedule-grid">
                     <div class="schedule-block">
@@ -241,28 +258,31 @@
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section class="dashboard-grid">
-            
-            <div class="card patrol-card">
-                <h3>Safety Patrol Duty Engine</h3>
-                <div id="team-display" class="team-status-badge">Checking the schedule...</div>
-                <h4>Active Duty Roster</h4>
-                <ul id="roster-list" class="roster-list-container">
-                    </ul>
-            </div>
-
-            <div class="card search-card">
-                <h3>🔍 Look Up Your Team & Station</h3>
-                <p class="search-instructions">Enter a first name, last name, or full name to see all matching safety patrol assignments.</p>
-                <div class="search-bar-row">
-                    <input type="text" id="student-search" placeholder="e.g. Mario Tate">
-                    <button onclick="searchStudent()" class="btn-search">Search</button>
+            <div id="patrol-tab" class="tab-content">
+                <div class="schedule-header">
+                    <h3>🛡️ Safety Patrol Operations Desk</h3>
+                    <p>Track team dates and assigned duty layouts dynamically.</p>
                 </div>
-                <div id="search-result"></div>
-            </div>
+                <div class="dashboard-grid">
+                    <div class="card patrol-card">
+                        <h4>Current Active Team Roster</h4>
+                        <div id="team-display" class="team-status-badge">Checking the calendar...</div>
+                        <ul id="roster-list" class="roster-list-container">
+                            </ul>
+                    </div>
 
+                    <div class="card search-card">
+                        <h4>🔎 Lookup Assignments by Student Name</h4>
+                        <p class="search-instructions">Enter a first name, last name, or full name below to see their active Safety Patrol unit, shift assignment, and location post.</p>
+                        <div class="search-bar-row">
+                            <input type="text" id="student-search" placeholder="e.g. Mario Tate">
+                            <button onclick="searchStudent()" class="btn-search">Search</button>
+                        </div>
+                        <div id="search-result"></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
