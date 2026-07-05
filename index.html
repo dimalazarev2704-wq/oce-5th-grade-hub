@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OCE 5th Grade Hub</title>
+    <title>Olive Chapel Elementary - 5th Grade Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,242 +11,36 @@
     <header>
         <h1>Olive Chapel Elementary</h1>
         <h2>5th Grade Student & Parent Portal</h2>
-        <p id="current-date">Loading date...</p>
+        <div id="current-date" class="date-badge">Loading date...</div>
     </header>
 
-    <nav class="tab-menu">
-        <button class="tab-btn active" onclick="openTab(event, 'home-tab')">🏠 Home / Safety Patrol</button>
-        <button class="tab-btn" onclick="openTab(event, 'sullivan-tab')">Ms. Sullivan</button>
-        <button class="tab-btn" onclick="openTab(event, 'mcjones-tab')">Ms. McJones</button>
-        <button class="tab-btn" onclick="openTab(event, 'pittman-tab')">Ms. Pittman</button>
-        <button class="tab-btn" onclick="openTab(event, 'hermanson-tab')">Ms. Hermanson</button>
-        <button class="tab-btn" onclick="openTab(event, 'christensen-tab')">Ms. Christensen</button>
-        <button class="tab-btn" onclick="openTab(event, 'martin-tab')">Mr. Martin</button>
-    </nav>
-
-    <main>
-        <section id="home-tab" class="tab-content active-content">
-            <div class="grid-container">
-                <div class="card">
-                    <h2>Today's Safety Patrol Team</h2>
-                    <div id="team-display" class="team-name">Checking the schedule...</div>
-                    <h3>On-Duty Roster</h3>
-                    <ul id="roster-list"></ul>
-                </div>
-
-                <div class="card">
-                    <h2>🔍 Look Up Your Team</h2>
-                    <p>Enter the student's first and last name to find their assigned rotation group.</p>
-                    <div class="search-box">
-                        <input type="text" id="student-search" placeholder="e.g. Oakley Rillo">
-                        <button onclick="searchStudent()">Search</button>
-                    </div>
-                    <div id="search-result" class="result-box"></div>
-                </div>
+    <main class="container">
+        <section class="dashboard-grid">
+            
+            <div class="card patrol-card">
+                <h3>Today's Safety Patrol Team</h3>
+                <div id="team-display" class="team-status-badge">Checking the schedule...</div>
+                <h4>On-Duty Roster</h4>
+                <ul id="roster-list" class="roster-list-container">
+                    </ul>
             </div>
+
+            <div class="card search-card">
+                <h3>🔍 Look Up Your Team & Station</h3>
+                <p class="search-instructions">Enter the student's first and last name to instantly find their assigned rotation group, time shift, and duty location.</p>
+                <div class="search-bar-row">
+                    <input type="text" id="student-search" placeholder="e.g. Oakley Rillo">
+                    <button onclick="searchStudent()" class="btn-search">Search</button>
+                </div>
+                <div id="search-result"></div>
+            </div>
+
         </section>
 
-        <section id="sullivan-tab" class="tab-content">
-            <div class="card">
-                <h2>Ms. Sullivan's Classroom</h2>
-                <p class="description">Welcome to 5th grade! Below is our official classroom daily schedule block layout.</p>
-                
-                <div class="schedule-grid">
-                    <div class="schedule-block">
-                        <h3>🗓️ Monday - Thursday</h3>
-                        <table class="schedule-table">
-                            <tr><th>Time</th><th>Activity</th></tr>
-                            <tr><td>8:45 - 9:15</td><td>Arrival</td></tr>
-                            <tr><td>9:15 - 9:25</td><td>Second Step</td></tr>
-                            <tr><td>9:25 - 11:35</td><td>ELA</td></tr>
-                            <tr><td>11:35 - 12:20</td><td class="highlight-specials">Specials</td></tr>
-                            <tr><td>12:20 - 12:50</td><td>Recess</td></tr>
-                            <tr><td>12:50 - 1:20</td><td>Lunch</td></tr>
-                            <tr><td>1:20 - 2:05</td><td>Science / SS</td></tr>
-                            <tr><td>2:05 - 3:35</td><td>Math</td></tr>
-                            <tr><td>3:35</td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                    <div class="schedule-block">
-                        <h3>🗓️ Friday</h3>
-                        <table class="schedule-table">
-                            <tr><th>Time</th><th>Activity</th></tr>
-                            <tr><td>8:45 - 9:15</td><td class="highlight-specials">Arrival - to Specials</td></tr>
-                            <tr><td>9:15 - 10:00</td><td class="highlight-specials">Specials</td></tr>
-                            <tr><td>10:00 - 12:20</td><td>ELA</td></tr>
-                            <tr><td>12:20 - 12:50</td><td>Recess</td></tr>
-                            <tr><td>12:50 - 1:20</td><td>Lunch</td></tr>
-                            <tr><td>1:20 - 2:05</td><td>Science / SS</td></tr>
-                            <tr><td>2:05 - 3:35</td><td>Math</td></tr>
-                            <tr><td>3:35</td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="mcjones-tab" class="tab-content">
-            <div class="card">
-                <h2>Ms. McJones's Classroom</h2>
-                <p class="description">Welcome to 5th grade! Below is our official classroom daily schedule block layout.</p>
-                <div class="schedule-grid">
-                    <div class="schedule-block">
-                        <h3>🗓️ Monday - Thursday</h3>
-                        <table class="schedule-table">
-                            <tr><th>Time</th><th>Activity</th></tr>
-                            <tr><td>8:45 - 9:15</td><td>Arrival</td></tr>
-                            <tr><td>9:15 - 9:25</td><td>Second Step</td></tr>
-                            <tr><td>9:25 - 11:35</td><td>ELA</td></tr>
-                            <tr><td>11:35 - 12:20</td><td class="highlight-specials">Specials</td></tr>
-                            <tr><td>12:20 - 12:50</td><td>Recess</td></tr>
-                            <tr><td>12:50 - 1:20</td><td>Lunch</td></tr>
-                            <tr><td>1:20 - 2:05</td><td>Science / SS</td></tr>
-                            <tr><td>2:05 - 3:35</td><td>Math</td></tr>
-                            <tr><td>3:35</td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                    <div class="schedule-block">
-                        <h3>🗓️ Friday</h3>
-                        <table class="schedule-table">
-                            <tr><th>Time</th><th>Activity</th></tr>
-                            <tr><td>8:45 - 9:15</td><td class="highlight-specials">Arrival - to Specials</td></tr>
-                            <tr><td>9:15 - 10:00</td><td class="highlight-specials">Specials</td></tr>
-                            <tr><td>10:00 - 12:20</td><td>ELA</td></tr>
-                            <tr><td>12:20 - 12:50</td><td>Recess</td></tr>
-                            <tr><td>12:50 - 1:20</td><td>Lunch</td></tr>
-                            <tr><td>1:20 - 2:05</td><td>Science / SS</td></tr>
-                            <tr><td>2:05 - 3:35</td><td>Math</td></tr>
-                            <tr><td>3:35</td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="pittman-tab" class="tab-content">
-            <div class="card">
-                <h2>Ms. Pittman's Classroom</h2>
-                <p class="description">Welcome to 5th grade! Below is our official classroom daily schedule block layout.</p>
-                <div class="schedule-grid">
-                    <div class="schedule-block">
-                        <h3>🗓️ Monday - Thursday</h3>
-                        <table class="schedule-table">
-                            <tr><th>Time</th><th>Activity</th></tr>
-                            <tr><td>8:45 - 9:15</td><td>Arrival</td></tr>
-                            <tr><td>9:15 - 9:25</td><td>Second Step</td></tr>
-                            <tr><td>9:25 - 11:35</td><td>ELA</td></tr>
-                            <tr><td>11:35 - 12:20</td><td class="highlight-specials">Specials</td></tr>
-                            <tr><td>12:20 - 12:50</td><td>Recess</td></tr>
-                            <tr><td>12:50 - 1:20</td><td>Lunch</td></tr>
-                            <tr><td>1:20 - 2:05</td><td>Science / SS</td></tr>
-                            <tr><td>2:05 - 3:35</td><td>Math</td></tr>
-                            <tr><td>3:35</td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                    <div class="schedule-block">
-                        <h3>🗓️ Friday</h3>
-                        <table class="schedule-table">
-                            <tr><th>Time</th><th>Activity</th></tr>
-                            <tr><td>8:45 - 9:15</td><td class="highlight-specials">Arrival - to Specials</td></tr>
-                            <tr><td>9:15 - 10:00</td><td class="highlight-specials">Specials</td></tr>
-                            <tr><td>10:00 - 12:20</td><td>ELA</td></tr>
-                            <tr><td>12:20 - 12:50</td><td>Recess</td></tr>
-                            <tr><td>12:50 - 1:20</td><td>Lunch</td></tr>
-                            <tr><td>1:20 - 2:05</td><td>Science / SS</td></tr>
-                            <tr><td>2:05 - 3:35</td><td>Math</td></tr>
-                            <tr><td>3:35</td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="hermanson-tab" class="tab-content">
-            <div class="card">
-                <h2>Ms. Hermanson's Classroom</h2>
-                <p class="description">Welcome to 5th grade! Below is our official classroom daily schedule block layout.</p>
-                <div class="schedule-grid">
-                    <div class="schedule-block">
-                        <h3>🗓️ Monday - Thursday</h3>
-                        <table class="schedule-table">
-                            <tr><th>Time</th><th>Activity</th></tr>
-                            <tr><td>8:45 - 9:15</td><td>Arrival</td></tr>
-                            <tr><td>9:15 - 9:25</td><td>Second Step</td></tr>
-                            <tr><td>9:25 - 11:35</td><td>ELA</td></tr>
-                            <tr><td>11:35 - 12:20</td><td class="highlight-specials">Specials</td></tr>
-                            <tr><td>12:20 - 12:50</td><td>Recess</td></tr>
-                            <tr><td>12:50 - 1:20</td><td>Lunch</td></tr>
-                            <tr><td>1:20 - 2:05</td><td>Science / SS</td></tr>
-                            <tr><td>2:05 - 3:35</td><td>Math</td></tr>
-                            <tr><td>3:35</td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                    <div class="schedule-block">
-                        <h3>🗓️ Friday</h3>
-                        <table class="schedule-table">
-                            <tr><th>Time</th><th>Activity</th></tr>
-                            <tr><td>8:45 - 9:15</td><td class="highlight-specials">Arrival - to Specials</td></tr>
-                            <tr><td>9:15 - 10:00</td><td class="highlight-specials">Specials</td></tr>
-                            <tr><td>10:00 - 12:20</td><td>ELA</td></tr>
-                            <tr><td>12:20 - 12:50</td><td>Recess</td></tr>
-                            <tr><td>12:50 - 1:20</td><td>Lunch</td></tr>
-                            <tr><td>1:20 - 2:05</td><td>Science / SS</td></tr>
-                            <tr><td>2:05 - 3:35</td><td>Math</td></tr>
-                            <tr><td>3:35</td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="christensen-tab" class="tab-content">
-            <div class="card">
-                <h2>Ms. Christensen's Classroom</h2>
-                <p class="description">Welcome to 5th grade! Below is our official classroom daily schedule block layout.</p>
-                <div class="schedule-grid">
-                    <div class="schedule-block">
-                        <h3>🗓️ Monday - Thursday</h3>
-                        <table class="schedule-table">
-                            <tr><th>Time</th><th>Activity</th></tr>
-                            <tr><td>8:45 - 9:15</td><td>Arrival</td></tr>
-                            <tr><td>9:15 - 9:25</td><td>Second Step</td></tr>
-                            <tr><td>9:25 - 11:35</td><td>ELA</td></tr>
-                            <tr><td>11:35 - 12:20</td><td class="highlight-specials">Specials</td></tr>
-                            <tr><td>12:20 - 12:50</td><td>Recess</td></tr>
-                            <tr><td>12:50 - 1:20</td><td>Lunch</td></tr>
-                            <tr><td>1:20 - 2:05</td><td>Science / SS</td></tr>
-                            <tr><td>2:05 - 3:35</td><td>Math</td></tr>
-                            <tr><td>3:35</td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                    <div class="schedule-block">
-                        <h3>🗓️ Friday</h3>
-                        <table class="schedule-table">
-                            <tr><th>Time</th><th>Activity</th></tr>
-                            <tr><td>8:45 - 9:15</td><td class="highlight-specials">Arrival - to Specials</td></tr>
-                            <tr><td>9:15 - 10:00</td><td class="highlight-specials">Specials</td></tr>
-                            <tr><td>10:00 - 12:20</td><td>ELA</td></tr>
-                            <tr><td>12:20 - 12:50</td><td>Recess</td></tr>
-                            <tr><td>12:50 - 1:20</td><td>Lunch</td></tr>
-                            <tr><td>1:20 - 2:05</td><td>Science / SS</td></tr>
-                            <tr><td>2:05 - 3:35</td><td>Math</td></tr>
-                            <tr><td>3:35</td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="martin-tab" class="tab-content">
-            <div class="card">
-                <h2>Mr. Martin's Classroom</h2>
-                <p class="description">Welcome to 5th grade! Below is our official classroom daily schedule block layout.</p>
-                <div class="schedule-grid">
-                    <div class="schedule-block">
-                        <h3>🗓️ Monday - Thursday</h3>
-                        <table class="schedule-table">
-                            <tr><th>Time</th><th>Activity</th></tr>
-                            <tr><td>8:45 - 9:15</td><td>Arrival</td></tr>
-                            <tr><td>9:15 - 9:25</td><td>Second Step</td></tr>
-                            <tr><td>9:25 - 11:35</td><td>ELA</td></tr>
-                            <tr><td>11:35 - 1
+        <section class="tabs-container">
+            <nav class="tab-navigation-bar">
+                <button class="tab-btn active" onclick="openTab(event, 'sullivan-tab')">🏠 Home / Safety Patrol</button>
+                <button class="tab-btn" onclick="openTab(event, 'mcjones-tab')">Ms. McJones</button>
+                <button class="tab-btn" onclick="openTab(event, 'pittman-tab')">Ms. Pittman</button>
+                <button class="tab-btn" onclick="openTab(event, 'hermanson-tab')">Ms. Hermanson</button>
+                <button class="tab-btn" onclick="openTab(event, '
