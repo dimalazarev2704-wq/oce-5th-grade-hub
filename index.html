@@ -15,12 +15,87 @@
     </header>
 
     <main class="container">
+        
+        <section class="tabs-container">
+            <nav class="tab-navigation-bar">
+                <button class="tab-btn active" onclick="openTab(event, 'sullivan-tab')">🏠 Ms. Sullivan</button>
+                <button class="tab-btn" onclick="openTab(event, 'mcjones-tab')">Ms. McJones</button>
+                <button class="tab-btn" onclick="openTab(event, 'pittman-tab')">Ms. Pittman</button>
+                <button class="tab-btn" onclick="openTab(event, 'hermanson-tab')">Ms. Hermanson</button>
+                <button class="tab-btn" onclick="openTab(event, 'christensen-tab')">Ms. Christensen</button>
+                <button class="tab-btn" onclick="openTab(event, 'martin-tab')">Mr. Martin</button>
+            </nav>
+
+            <div id="sullivan-tab" class="tab-content active-content">
+                <div class="schedule-header">
+                    <h3>Ms. Sullivan's Classroom Schedule</h3>
+                    <p>Welcome! Below is our active weekly class rotation layout.</p>
+                </div>
+                
+                <div class="schedule-grid">
+                    <div class="schedule-block">
+                        <h4>Monday – Thursday Schedule</h4>
+                        <table class="schedule-table">
+                            <tr><td><strong>9:15 – 9:45</strong></td><td>Morning Meeting / Core</td></tr>
+                            <tr><td><strong>9:45 – 11:15</strong></td><td>Math Block</td></tr>
+                            <tr><td><strong>11:15 – 11:35</strong></td><td>Science / Social Studies</td></tr>
+                            <tr><td><strong>11:35 – 12:20</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
+                            <tr><td><strong>12:20 – 1:05</strong></td><td>ELA / Writing</td></tr>
+                            <tr><td><strong>1:05 – 1:35</strong></td><td class="highlight-green">Lunch Break</td></tr>
+                            <tr><td><strong>1:35 – 2:05</strong></td><td class="highlight-green">Recess</td></tr>
+                            <tr><td><strong>2:05 – 3:45</strong></td><td>ELA Reading / Intervention</td></tr>
+                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="schedule-block">
+                        <h4>Friday Schedule</h4>
+                        <table class="schedule-table">
+                            <tr><td><strong>9:15 – 10:00</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
+                            <tr><td><strong>10:00 – 11:00</strong></td><td>Math Review</td></tr>
+                            <tr><td><strong>11:00 – 12:00</strong></td><td>ELA Work</td></tr>
+                            <tr><td><strong>12:00 – 12:45</strong></td><td>Science Activity</td></tr>
+                            <tr><td><strong>12:45 – 1:15</strong></td><td class="highlight-green">Lunch Break</td></tr>
+                            <tr><td><strong>1:15 – 1:45</strong></td><td class="highlight-green">Recess</td></tr>
+                            <tr><td><strong>1:45 – 3:30</strong></td><td>Class Meeting / Fun Friday</td></tr>
+                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mcjones-tab" class="tab-content">
+                <h3>Ms. McJones's Classroom</h3>
+                <p class="placeholder-text">Classroom schedule and teacher announcements coming soon.</p>
+            </div>
+
+            <div id="pittman-tab" class="tab-content">
+                <h3>Ms. Pittman's Classroom</h3>
+                <p class="placeholder-text">Classroom schedule and teacher announcements coming soon.</p>
+            </div>
+
+            <div id="hermanson-tab" class="tab-content">
+                <h3>Ms. Hermanson's Classroom</h3>
+                <p class="placeholder-text">Classroom schedule and teacher announcements coming soon.</p>
+            </div>
+
+            <div id="christensen-tab" class="tab-content">
+                <h3>Ms. Christensen's Classroom</h3>
+                <p class="placeholder-text">Classroom schedule and teacher announcements coming soon.</p>
+            </div>
+
+            <div id="martin-tab" class="tab-content">
+                <h3>Mr. Martin's Classroom</h3>
+                <p class="placeholder-text">Classroom schedule and teacher announcements coming soon.</p>
+            </div>
+        </section>
+
         <section class="dashboard-grid">
             
             <div class="card patrol-card">
-                <h3>Today's Safety Patrol Team</h3>
+                <h3>Safety Patrol Duty Engine</h3>
                 <div id="team-display" class="team-status-badge">Checking the schedule...</div>
-                <h4>On-Duty Roster</h4>
+                <h4>Active Duty Roster</h4>
                 <ul id="roster-list" class="roster-list-container">
                     </ul>
             </div>
@@ -37,46 +112,6 @@
 
         </section>
 
-        <section class="tabs-container">
-            <nav class="tab-navigation-bar">
-                <button class="tab-btn active" onclick="openTab(event, 'sullivan-tab')">🏠 Home / Safety Patrol</button>
-                <button class="tab-btn" onclick="openTab(event, 'mcjones-tab')">Ms. McJones</button>
-                <button class="tab-btn" onclick="openTab(event, 'pittman-tab')">Ms. Pittman</button>
-                <button class="tab-btn" onclick="openTab(event, 'hermanson-tab')">Ms. Hermanson</button>
-                <button class="tab-btn" onclick="openTab(event, 'christensen-tab')">Ms. Christensen</button>
-                <button class="tab-btn" onclick="openTab(event, 'martin-tab')">Mr. Martin</button>
-            </nav>
-
-            <div id="sullivan-tab" class="tab-content active-content">
-                <h3>Ms. Sullivan's Schedule</h3>
-                <p>Welcome to the safety patrol dashboard! Use the search bar above to see specific assignments.</p>
-            </div>
-
-            <div id="mcjones-tab" class="tab-content">
-                <h3>Ms. McJones's Classroom</h3>
-                <p>Classroom schedules and announcements coming soon.</p>
-            </div>
-
-            <div id="pittman-tab" class="tab-content">
-                <h3>Ms. Pittman's Classroom</h3>
-                <p>Classroom schedules and announcements coming soon.</p>
-            </div>
-
-            <div id="hermanson-tab" class="tab-content">
-                <h3>Ms. Hermanson's Classroom</h3>
-                <p>Classroom schedules and announcements coming soon.</p>
-            </div>
-
-            <div id="christensen-tab" class="tab-content">
-                <h3>Ms. Christensen's Classroom</h3>
-                <p>Classroom schedules and announcements coming soon.</p>
-            </div>
-
-            <div id="martin-tab" class="tab-content">
-                <h3>Mr. Martin's Classroom</h3>
-                <p>Classroom schedules and announcements coming soon.</p>
-            </div>
-        </section>
     </main>
 
     <script src="script.js"></script>
