@@ -1,4 +1,4 @@
-// 1. Upgraded Safety Patrol Roster Matrix with Time Shifts and Stations
+// 1. Safety Patrol Roster with Time Shifts and Station Locations
 const rosters = {
     "Mighty Shrimp": [
         { name: "Oakley Rillo", shift: "AM", station: "Carpool (Front)" },
@@ -67,17 +67,16 @@ const rosters = {
     ]
 };
 
-// 2. Automated Rotation Schedules Date Targets Mapping
+// 2. Active Scheduled Calendar Blocks (Includes July 2026 Target)
 const schedule = [
-    { start: "2026-07-01", end: "2026-07-31", team: "Mighty Shrimp", bg: "#e67e22", text: "#fff" },
-    { start: "2026-08-01", end: "2026-08-31", team: "Fearless Sea Turtles", bg: "#2ecc71", text: "#fff" },
+    { start: "2026-07-01", end: "2026-08-31", team: "Mighty Shrimp", bg: "#e67e22", text: "#fff" },
     { start: "2026-09-01", end: "2026-10-06", team: "Dynamic Starfish", bg: "#f1c40f", text: "#333" },
     { start: "2026-10-07", end: "2026-10-31", team: "Mighty Shrimp", bg: "#e67e22", text: "#fff" },
     { start: "2026-11-01", end: "2026-11-30", team: "Fearless Sea Turtles", bg: "#2ecc71", text: "#fff" },
     { start: "2026-12-01", end: "2026-12-31", team: "Dynamic Starfish", bg: "#f1c40f", text: "#333" }
 ];
 
-// 3. Tab Switching Mechanism Engine Control
+// 3. Tab Navigation Engine
 function openTab(evt, tabId) {
     const tabContents = document.getElementsByClassName("tab-content");
     for (let i = 0; i < tabContents.length; i++) {
@@ -98,7 +97,7 @@ function openTab(evt, tabId) {
     }
 }
 
-// 4. Advanced Student Searching System (Outputs Team, Shift, and Station Details)
+// 4. Student Search Bar Engine
 function searchStudent() {
     const input = document.getElementById('student-search').value.trim().toLowerCase();
     const resultBox = document.getElementById('search-result');
@@ -138,7 +137,7 @@ function searchStudent() {
     }
 }
 
-// 5. Main Window Live Environment Calculation Engine
+// 5. Environment Load Initialization
 function initDashboard() {
     try {
         const today = new Date();
@@ -197,7 +196,7 @@ function initDashboard() {
             });
         }
     } catch (error) {
-        console.error("Dashboard init error: ", error);
+        console.error("Initialization failure: ", error);
     }
 }
 
