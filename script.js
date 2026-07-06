@@ -1,323 +1,209 @@
-/* Core Layout Settings */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+// 1. Safety Patrol Roster Matrix Data Mapping
+const rosters = {
+    "Mighty Shrimp": [
+        { name: "Oakley Rillo", shift: "AM", station: "Carpool (Front)" },
+        { name: "Campbell Cabaleiro", shift: "AM", station: "Bus Loop" },
+        { name: "Wyatt Ellison", shift: "AM", station: "Front Door" },
+        { name: "Caleb Kanter", shift: "AM", station: "Hallway Monitor" },
+        { name: "Charlotte Maichle", shift: "AM", station: "Carpool (Back)" },
+        { name: "Maanvi Hirani", shift: "AM", station: "Bus Loop" },
+        { name: "Eleanor Franks", shift: "PM", station: "Carpool (Front)" },
+        { name: "Fletcher Hale", shift: "PM", station: "Bus Loop" },
+        { name: "Lexi Desai", shift: "PM", station: "Front Door" },
+        { name: "Maahi Hirani", shift: "PM", station: "Hallway Monitor" },
+        { name: "Liya Desai", shift: "PM", station: "Carpool (Back)" },
+        { name: "Taylor Dangerfield", shift: "PM", station: "Bus Loop" },
+        { name: "Ellie Dangerfield", shift: "AM", station: "Hallway Monitor" },
+        { name: "Samanvi Dasari", shift: "AM", station: "Front Door" },
+        { name: "Maddie Price", shift: "PM", station: "Carpool (Front)" },
+        { name: "Elizabeth Spittler", shift: "PM", station: "Bus Loop" },
+        { name: "Grayson Cook", shift: "AM", station: "Carpool (Front)" },
+        { name: "Sumsaara Karicherla", shift: "AM", station: "Bus Loop" },
+        { name: "Hannah Pozezanac", shift: "PM", station: "Hallway Monitor" },
+        { name: "Jorge Romero", shift: "PM", station: "Front Door" },
+        { name: "Camilla Contreras", shift: "PM", station: "Carpool (Back)" }
+    ],
+    "Fearless Sea Turtles": [
+        { name: "Prisha Madavaram", shift: "AM", station: "Carpool (Front)" },
+        { name: "Maya Whipple", shift: "AM", station: "Bus Loop" },
+        { name: "Ishka Patel", shift: "AM", station: "Front Door" },
+        { name: "Elise Moore", shift: "AM", station: "Hallway Monitor" },
+        { name: "Emmet Hornbeck", shift: "AM", station: "Carpool (Back)" },
+        { name: "Panth Viradiya", shift: "AM", station: "Bus Loop" },
+        { name: "Viraaj Singh", shift: "PM", station: "Carpool (Front)" },
+        { name: "Luci Fernandez", shift: "PM", station: "Bus Loop" },
+        { name: "Dylan Hartley", shift: "PM", station: "Front Door" },
+        { name: "Dylan Casadiego", shift: "PM", station: "Hallway Monitor" },
+        { name: "Halia Low", shift: "PM", station: "Carpool (Back)" },
+        { name: "Noah Abdelhalim", shift: "PM", station: "Bus Loop" },
+        { name: "Autumn Smith", shift: "AM", station: "Hallway Monitor" },
+        { name: "Taylor Yan", shift: "AM", station: "Front Door" },
+        { name: "Eliana Schreuder", shift: "PM", station: "Carpool (Front)" },
+        { name: "Giovanni Cruz-Rivera", shift: "PM", station: "Bus Loop" },
+        { name: "Addalyn Turner", shift: "AM", station: "Carpool (Front)" },
+        { name: "Gabriella Brown", shift: "AM", station: "Bus Loop" },
+        { name: "Hamzah Abu Jaradeh", shift: "PM", station: "Hallway Monitor" },
+        { name: "Eloise Riffle", shift: "PM", station: "Front Door" },
+        { name: "Arden Boyd", shift: "PM", station: "Carpool (Back)" }
+    ],
+    "Dynamic Starfish": [
+        { name: "Londyn Ashwood", shift: "AM", station: "Carpool (Front)" },
+        { name: "Nora Rowny", shift: "AM", station: "Bus Loop" },
+        { name: "Evan Brockett", shift: "AM", station: "Front Door" },
+        { name: "Dima Lazarev", shift: "AM", station: "Hallway Monitor" },
+        { name: "Malak Bsiss", shift: "AM", station: "Carpool (Back)" },
+        { name: "Reyansh Chalke", shift: "AM", station: "Bus Loop" },
+        { name: "Iverson Ramos", shift: "PM", station: "Carpool (Front)" },
+        { name: "Olivia Waite", shift: "PM", station: "Bus Loop" },
+        { name: "Eleanor Hauck", shift: "PM", station: "Front Door" },
+        { name: "Natalie Cochrane", shift: "PM", station: "Hallway Monitor" },
+        { name: "Eleni Esquivel", shift: "PM", station: "Carpool (Back)" },
+        { name: "Gabriela Polhemus", shift: "PM", station: "Bus Loop" },
+        { name: "Carter Clayton", shift: "AM", station: "Hallway Monitor" },
+        { name: "Daniela Castillo Ramirez", shift: "AM", station: "Front Door" },
+        { name: "Andrey Lushnikov", shift: "PM", station: "Carpool (Front)" },
+        { name: "Ivan Ramos", shift: "PM", station: "Bus Loop" },
+        { name: "Abigail Shi", shift: "AM", station: "Carpool (Front)" }
+    ]
+};
 
-body {
-    background-color: #f1f5f9;
-    color: #1e293b;
-    padding-bottom: 60px;
-}
+// 2. Active Scheduled Calendar Blocks (Starts cleanly on July 7th)
+const schedule = [
+    { start: "2026-07-07", end: "2026-08-31", team: "Mighty Shrimp", bg: "#e67e22", text: "#fff" },
+    { start: "2026-09-01", end: "2026-10-06", team: "Dynamic Starfish", bg: "#f1c40f", text: "#333" },
+    { start: "2026-10-07", end: "2026-10-31", team: "Mighty Shrimp", bg: "#e67e22", text: "#fff" },
+    { start: "2026-11-01", end: "2026-11-30", team: "Fearless Sea Turtles", bg: "#2ecc71", text: "#fff" },
+    { start: "2026-12-01", end: "2026-12-31", team: "Dynamic Starfish", bg: "#f1c40f", text: "#333" }
+];
 
-header {
-    text-align: center;
-    background-color: #ffffff;
-    padding: 25px 20px;
-    border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-}
-
-header h1 {
-    color: #0f172a;
-    font-size: 26px;
-    font-weight: 800;
-}
-
-header h2 {
-    color: #3b82f6;
-    font-size: 15px;
-    margin-top: 5px;
-    font-weight: 600;
-}
-
-.date-badge {
-    display: inline-block;
-    background-color: #f1f5f9;
-    padding: 6px 14px;
-    border-radius: 20px;
-    margin-top: 12px;
-    font-size: 13px;
-    font-weight: 500;
-    color: #64748b;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 25px auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-/* Tab Navigation Wrapper Component */
-.tabs-container {
-    background: white;
-    border-radius: 12px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04);
-    overflow: hidden;
-}
-
-.tab-navigation-bar {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #f8fafc;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 8px 8px 0 8px;
-    gap: 4px;
-}
-
-.tab-btn {
-    background: none;
-    border: none;
-    padding: 12px 18px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #64748b;
-    cursor: pointer;
-    border-radius: 8px 8px 0 0;
-    transition: all 0.2s;
-}
-
-.tab-btn:hover {
-    color: #0f172a;
-    background-color: #edf2f7;
-}
-
-.tab-btn.active {
-    color: #3b82f6;
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-bottom-color: transparent;
-    position: relative;
-    top: 1px;
-}
-
-/* Tab Panel Display Framework */
-.tab-content {
-    display: none;
-    padding: 25px;
-}
-
-.tab-content.active-content {
-    display: block;
-}
-
-.schedule-header {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 12px;
-}
-
-.schedule-header h3 {
-    font-size: 20px;
-    color: #0f172a;
-}
-
-.schedule-header p {
-    font-size: 14px;
-    color: #3b82f6;
-    margin-top: 6px;
-    font-weight: 600;
-}
-
-/* Welcome System Formatting */
-.welcome-section h3 {
-    font-size: 22px;
-    color: #0f172a;
-    margin-bottom: 10px;
-}
-
-.welcome-section p {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #475569;
-}
-
-.guide-box {
-    background-color: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-.guide-box h4 {
-    font-size: 16px;
-    color: #1e293b;
-    margin-bottom: 10px;
-}
-
-.guide-box ul {
-    list-style-position: inside;
-    font-size: 14px;
-    color: #475569;
-}
-
-.guide-box li {
-    margin-bottom: 8px;
-    line-height: 1.5;
-}
-
-/* Schedule Table Grid Layout */
-.schedule-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-@media (max-width: 768px) {
-    .schedule-grid {
-        grid-template-columns: 1fr;
+// 3. Tab Navigation Engine
+function openTab(evt, tabId) {
+    const tabContents = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove("active-content");
+    }
+    
+    const tabButtons = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].classList.remove("active");
+    }
+    
+    const targetTab = document.getElementById(tabId);
+    if (targetTab) {
+        targetTab.classList.add("active-content");
+    }
+    if (evt && evt.currentTarget) {
+        evt.currentTarget.classList.add("active");
     }
 }
 
-.schedule-block {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 15px;
-}
+// 4. Smart Partial & Sibling Search Engine
+function searchStudent() {
+    const input = document.getElementById('student-search').value.trim().toLowerCase();
+    const resultBox = document.getElementById('search-result');
+    
+    if (!input) {
+        resultBox.innerHTML = "<p style='color:#e11d48; font-weight: 500;'>Please enter a name to search!</p>";
+        return;
+    }
 
-.schedule-block h4 {
-    font-size: 15px;
-    color: #1e293b;
-    margin-bottom: 12px;
-    font-weight: 700;
-}
+    let matches = [];
 
-.schedule-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-}
+    // Search loops through all fields
+    for (let team in rosters) {
+        rosters[team].forEach(student => {
+            let studentName = student.name.toLowerCase();
+            if (studentName.includes(input)) {
+                matches.push({
+                    teamName: team,
+                    data: student
+                });
+            }
+        });
+    }
 
-.schedule-table td {
-    padding: 8px 10px;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.schedule-table tr:last-child td {
-    border-bottom: none;
-}
-
-/* Schedule Colors Highlights */
-.highlight-blue {
-    color: #2563eb;
-    font-weight: 600;
-    background-color: #eff6ff;
-    border-radius: 4px;
-    padding: 2px 6px;
-}
-
-.highlight-green {
-    color: #16a34a;
-    font-weight: 600;
-    background-color: #f0fdf4;
-    border-radius: 4px;
-    padding: 2px 6px;
-}
-
-/* Dashboard Widgets Split System */
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-}
-
-@media (max-width: 768px) {
-    .dashboard-grid {
-        grid-template-columns: 1fr;
+    if (matches.length > 0) {
+        let htmlOutput = "";
+        
+        matches.forEach(item => {
+            let teamColor = item.teamName === "Mighty Shrimp" ? "#e67e22" : item.teamName === "Fearless Sea Turtles" ? "#2ecc71" : "#d4af37";
+            htmlOutput += `
+                <div style="border-left: 5px solid ${teamColor}; background: #f8fafc; padding: 18px; border-radius: 8px; margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <p style="margin: 0 0 8px 0; font-size: 16px;"><strong>${item.data.name}</strong></p>
+                    <p style="margin: 4px 0;">✨ <strong>Group:</strong> <span style="color:${teamColor}; font-weight:800;">${item.teamName}</span></p>
+                    <p style="margin: 4px 0;">⏰ <strong>Shift:</strong> <span style="font-weight:600; color:#334155;">${item.data.shift} Duty</span></p>
+                    <p style="margin: 4px 0;">📍 <strong>Station:</strong> <span style="font-weight:600; color:#334155;">${item.data.station}</span></p>
+                </div>
+            `;
+        });
+        
+        resultBox.innerHTML = htmlOutput;
+    } else {
+        resultBox.innerHTML = "<p style='color:#e67e22; font-weight: 500; margin-top: 15px;'>No student names matched your search. Double check spelling and try again.</p>";
     }
 }
 
-.card {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04);
-    border: 1px solid #e2e8f0;
+// 5. Environment Load Initialization
+function initDashboard() {
+    try {
+        const today = new Date();
+        const dateString = today.toLocaleDateString('en-US', { 
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
+        });
+        
+        const dateElement = document.getElementById('current-date');
+        if (dateElement) dateElement.innerText = dateString;
+
+        let activeTeam = null;
+        let config = null;
+
+        for (let block of schedule) {
+            const start = new Date(block.start.replace(/-/g, '\/'));
+            const end = new Date(block.end.replace(/-/g, '\/'));
+            end.setHours(23, 59, 59, 999);
+            
+            if (today >= start && today <= end) {
+                activeTeam = block.team;
+                config = block;
+                break;
+            }
+        }
+
+        const display = document.getElementById('team-display');
+        const list = document.getElementById('roster-list');
+        
+        if (display && list) {
+            list.innerHTML = "";
+            if (activeTeam) {
+                display.innerText = `${activeTeam} (On Duty Today)`;
+                display.style.backgroundColor = config.bg;
+                display.style.color = config.text;
+
+                rosters[activeTeam].forEach(student => {
+                    let li = document.createElement('li');
+                    li.innerHTML = `👤 <strong>${student.name}</strong> &rarr; ${student.shift} Shift at the 📍 <em>${student.station}</em>`;
+                    list.appendChild(li);
+                });
+            } else {
+                display.innerText = "No Safety Patrol Rotation Today";
+                display.style.backgroundColor = "#cbd5e0";
+                display.style.color = "#4a5568";
+                list.innerHTML = "<li style='text-align: center; color: #64748b; padding: 20px;'>Enjoy your day off! Active rotation tracks launch on July 7th.</li>";
+            }
+        }
+
+        const searchInput = document.getElementById('student-search');
+        if (searchInput) {
+            searchInput.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    searchStudent();
+                }
+            });
+        }
+    } catch (error) {
+        console.error("Initialization failure: ", error);
+    }
 }
 
-/* Safety Patrol Live Badges */
-.team-status-badge {
-    padding: 14px;
-    text-align: center;
-    border-radius: 8px;
-    font-weight: 800;
-    font-size: 16px;
-    margin-bottom: 15px;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
-}
-
-.card h4 {
-    font-size: 13px;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 4px;
-}
-
-.roster-list-container {
-    list-style-type: none;
-    max-height: 250px;
-    overflow-y: auto;
-}
-
-.roster-list-container li {
-    padding: 10px 12px;
-    background: #f8fafc;
-    margin-bottom: 8px;
-    border-radius: 6px;
-    font-size: 13px;
-    color: #334155;
-    border-left: 4px solid #cbd5e1;
-    line-height: 1.4;
-}
-
-/* Search Actions Engine Styles */
-.search-instructions {
-    font-size: 13px;
-    color: #64748b;
-    line-height: 1.5;
-    margin-bottom: 15px;
-}
-
-.search-bar-row {
-    display: flex;
-    gap: 10px;
-}
-
-#student-search {
-    flex: 1;
-    padding: 12px 16px;
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
-    font-size: 14px;
-    outline: none;
-}
-
-#student-search:focus {
-    border-color: #3b82f6;
-}
-
-.btn-search {
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.btn-search:hover {
-    background-color: #2563eb;
-}
+window.onload = initDashboard;
