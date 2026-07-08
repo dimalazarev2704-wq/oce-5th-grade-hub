@@ -1,292 +1,323 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olive Chapel Elementary - 5th Grade Hub</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Core Layout Settings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    <header>
-        <h1>Olive Chapel Elementary</h1>
-        <h2>5th Grade Student & Parent Portal</h2>
-        <div id="current-date" class="date-badge">Loading date...</div>
-    </header>
+body {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    padding-bottom: 60px;
+}
 
-    <main class="container">
-        
-        <section class="tabs-container">
-            <nav class="tab-navigation-bar">
-                <button class="tab-btn active" onclick="openTab(event, 'home-tab')">🏠 Home</button>
-                <button class="tab-btn" onclick="openTab(event, 'sullivan-tab')">Ms. Sullivan</button>
-                <button class="tab-btn" onclick="openTab(event, 'mcjones-tab')">Ms. McJones</button>
-                <button class="tab-btn" onclick="openTab(event, 'pittman-tab')">Ms. Pittman</button>
-                <button class="tab-btn" onclick="openTab(event, 'hermanson-tab')">Ms. Hermanson</button>
-                <button class="tab-btn" onclick="openTab(event, 'christensen-tab')">Ms. Christensen</button>
-                <button class="tab-btn" onclick="openTab(event, 'martin-tab')">Mr. Martin</button>
-                <button class="tab-btn" onclick="openTab(event, 'patrol-tab')">🛡️ Safety Patrol</button>
-            </nav>
+header {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 25px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
 
-            <div id="home-tab" class="tab-content active-content">
-                <div class="welcome-section">
-                    <h3>Welcome to the 5th Grade Hub!</h3>
-                    <p>This portal is designed to keep Olive Chapel Elementary fifth graders and parents completely organized. Here, you can quickly jump between different teacher schedules, track daily routines, and check on special rotations.</p>
-                    
-                    <div class="guide-box">
-                        <h4>📋 How to Use This Website</h4>
-                        <ul>
-                            <li><strong>Teacher Tabs:</strong> Click on any teacher's name above to see their complete schedules, including exact times for lunch, recess, and their classroom's specific **Specials Rotation**.</li>
-                            <li><strong>Safety Patrol Tab:</strong> Check out the dedicated tracking tab to see which group is active on duty today and use the smart search bar to find assignments by student name.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+header h1 {
+    color: #0f172a;
+    font-size: 26px;
+    font-weight: 800;
+}
 
-            <div id="sullivan-tab" class="tab-content">
-                <div class="schedule-header">
-                    <h3>Ms. Sullivan's Classroom</h3>
-                    <p>✨ <strong>Class Specials Rotation:</strong> Day 1: PE / Day 2: Music / Day 3: Media / Day 4: Art / Day 5: Guidance</p>
-                </div>
-                <div class="schedule-grid">
-                    <div class="schedule-block">
-                        <h4>M / T / Th / F Schedule</h4>
-                        <table class="schedule-table">
-                            <tr><td><strong>9:15 – 9:45</strong></td><td>Morning Meeting / Core</td></tr>
-                            <tr><td><strong>9:45 – 11:15</strong></td><td>Math Block</td></tr>
-                            <tr><td><strong>11:15 – 11:35</strong></td><td>Science / Social Studies</td></tr>
-                            <tr><td><strong>11:35 – 12:20</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
-                            <tr><td><strong>12:20 – 1:05</strong></td><td>ELA / Writing</td></tr>
-                            <tr><td><strong>1:05 – 1:35</strong></td><td class="highlight-green">Lunch Break</td></tr>
-                            <tr><td><strong>1:35 – 2:05</strong></td><td class="highlight-green">Recess</td></tr>
-                            <tr><td><strong>2:05 – 3:45</strong></td><td>ELA Reading / Intervention</td></tr>
-                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                    <div class="schedule-block">
-                        <h4>Wednesday Schedule</h4>
-                        <table class="schedule-table">
-                            <tr><td><strong>9:15 – 10:00</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
-                            <tr><td><strong>10:00 – 11:00</strong></td><td>Math Review</td></tr>
-                            <tr><td><strong>11:00 – 12:00</strong></td><td>ELA Work</td></tr>
-                            <tr><td><strong>12:00 – 12:45</strong></td><td>Science Activity</td></tr>
-                            <tr><td><strong>12:45 – 1:15</strong></td><td class="highlight-green">Lunch Break</td></tr>
-                            <tr><td><strong>1:15 – 1:45</strong></td><td class="highlight-green">Recess</td></tr>
-                            <tr><td><strong>1:45 – 3:30</strong></td><td>Class Meeting / Fun Mid-Week</td></tr>
-                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
+header h2 {
+    color: #3b82f6;
+    font-size: 15px;
+    margin-top: 5px;
+    font-weight: 600;
+}
 
-            <div id="mcjones-tab" class="tab-content">
-                <div class="schedule-header">
-                    <h3>Ms. McJones's Classroom</h3>
-                    <p>✨ <strong>Class Specials Rotation:</strong> Day 1: Music / Day 2: Media / Day 3: Art / Day 4: Guidance / Day 5: PE</p>
-                </div>
-                <div class="schedule-grid">
-                    <div class="schedule-block">
-                        <h4>M / T / Th / F Schedule</h4>
-                        <table class="schedule-table">
-                            <tr><td><strong>9:15 – 9:45</strong></td><td>Morning Meeting / Core</td></tr>
-                            <tr><td><strong>9:45 – 11:15</strong></td><td>Math Block</td></tr>
-                            <tr><td><strong>11:15 – 11:35</strong></td><td>Science / Social Studies</td></tr>
-                            <tr><td><strong>11:35 – 12:20</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
-                            <tr><td><strong>12:20 – 1:05</strong></td><td>ELA / Writing</td></tr>
-                            <tr><td><strong>1:05 – 1:35</strong></td><td class="highlight-green">Lunch Break</td></tr>
-                            <tr><td><strong>1:35 – 2:05</strong></td><td class="highlight-green">Recess</td></tr>
-                            <tr><td><strong>2:05 – 3:45</strong></td><td>ELA Reading / Intervention</td></tr>
-                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                    <div class="schedule-block">
-                        <h4>Wednesday Schedule</h4>
-                        <table class="schedule-table">
-                            <tr><td><strong>9:15 – 10:00</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
-                            <tr><td><strong>10:00 – 11:00</strong></td><td>Math Review</td></tr>
-                            <tr><td><strong>11:00 – 12:00</strong></td><td>ELA Work</td></tr>
-                            <tr><td><strong>12:00 – 12:45</strong></td><td>Science Activity</td></tr>
-                            <tr><td><strong>12:45 – 1:15</strong></td><td class="highlight-green">Lunch Break</td></tr>
-                            <tr><td><strong>1:15 – 1:45</strong></td><td class="highlight-green">Recess</td></tr>
-                            <tr><td><strong>1:45 – 3:30</strong></td><td>Class Meeting / Fun Mid-Week</td></tr>
-                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
+.date-badge {
+    display: inline-block;
+    background-color: #f1f5f9;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #64748b;
+}
 
-            <div id="pittman-tab" class="tab-content">
-                <div class="schedule-header">
-                    <h3>Ms. Pittman's Classroom</h3>
-                    <p>✨ <strong>Class Specials Rotation:</strong> Day 1: Media / Day 2: Art / Day 3: Guidance / Day 4: PE / Day 5: Music</p>
-                </div>
-                <div class="schedule-grid">
-                    <div class="schedule-block">
-                        <h4>M / T / Th / F Schedule</h4>
-                        <table class="schedule-table">
-                            <tr><td><strong>9:15 – 9:45</strong></td><td>Morning Meeting / Core</td></tr>
-                            <tr><td><strong>9:45 – 11:15</strong></td><td>Math Block</td></tr>
-                            <tr><td><strong>11:15 – 11:35</strong></td><td>Science / Social Studies</td></tr>
-                            <tr><td><strong>11:35 – 12:20</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
-                            <tr><td><strong>12:20 – 1:05</strong></td><td>ELA / Writing</td></tr>
-                            <tr><td><strong>1:05 – 1:35</strong></td><td class="highlight-green">Lunch Break</td></tr>
-                            <tr><td><strong>1:35 – 2:05</strong></td><td class="highlight-green">Recess</td></tr>
-                            <tr><td><strong>2:05 – 3:45</strong></td><td>ELA Reading / Intervention</td></tr>
-                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                    <div class="schedule-block">
-                        <h4>Wednesday Schedule</h4>
-                        <table class="schedule-table">
-                            <tr><td><strong>9:15 – 10:00</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
-                            <tr><td><strong>10:00 – 11:00</strong></td><td>Math Review</td></tr>
-                            <tr><td><strong>11:00 – 12:00</strong></td><td>ELA Work</td></tr>
-                            <tr><td><strong>12:00 – 12:45</strong></td><td>Science Activity</td></tr>
-                            <tr><td><strong>12:45 – 1:15</strong></td><td class="highlight-green">Lunch Break</td></tr>
-                            <tr><td><strong>1:15 – 1:45</strong></td><td class="highlight-green">Recess</td></tr>
-                            <tr><td><strong>1:45 – 3:30</strong></td><td>Class Meeting / Fun Mid-Week</td></tr>
-                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
+.container {
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
 
-            <div id="hermanson-tab" class="tab-content">
-                <div class="schedule-header">
-                    <h3>Ms. Hermanson's Classroom</h3>
-                    <p>✨ <strong>Class Specials Rotation:</strong> Day 1: Art / Day 2: Guidance / Day 3: PE / Day 4: Music / Day 5: Media</p>
-                </div>
-                <div class="schedule-grid">
-                    <div class="schedule-block">
-                        <h4>M / T / Th / F Schedule</h4>
-                        <table class="schedule-table">
-                            <tr><td><strong>9:15 – 9:45</strong></td><td>Morning Meeting / Core</td></tr>
-                            <tr><td><strong>9:45 – 11:15</strong></td><td>Math Block</td></tr>
-                            <tr><td><strong>11:15 – 11:35</strong></td><td>Science / Social Studies</td></tr>
-                            <tr><td><strong>11:35 – 12:20</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
-                            <tr><td><strong>12:20 – 1:05</strong></td><td>ELA / Writing</td></tr>
-                            <tr><td><strong>1:05 – 1:35</strong></td><td class="highlight-green">Lunch Break</td></tr>
-                            <tr><td><strong>1:35 – 2:05</strong></td><td class="highlight-green">Recess</td></tr>
-                            <tr><td><strong>2:05 – 3:45</strong></td><td>ELA Reading / Intervention</td></tr>
-                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                    <div class="schedule-block">
-                        <h4>Wednesday Schedule</h4>
-                        <table class="schedule-table">
-                            <tr><td><strong>9:15 – 10:00</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
-                            <tr><td><strong>10:00 – 11:00</strong></td><td>Math Review</td></tr>
-                            <tr><td><strong>11:00 – 12:00</strong></td><td>ELA Work</td></tr>
-                            <tr><td><strong>12:00 – 12:45</strong></td><td>Science Activity</td></tr>
-                            <tr><td><strong>12:45 – 1:15</strong></td><td class="highlight-green">Lunch Break</td></tr>
-                            <tr><td><strong>1:15 – 1:45</strong></td><td class="highlight-green">Recess</td></tr>
-                            <tr><td><strong>1:45 – 3:30</strong></td><td>Class Meeting / Fun Mid-Week</td></tr>
-                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
+/* Tab Navigation Wrapper Component */
+.tabs-container {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04);
+    overflow: hidden;
+}
 
-            <div id="christensen-tab" class="tab-content">
-                <div class="schedule-header">
-                    <h3>Ms. Christensen's Classroom</h3>
-                    <p>✨ <strong>Class Specials Rotation:</strong> Day 1: Guidance / Day 2: PE / Day 3: Music / Day 4: Media / Day 5: Art</p>
-                </div>
-                <div class="schedule-grid">
-                    <div class="schedule-block">
-                        <h4>M / T / Th / F Schedule</h4>
-                        <table class="schedule-table">
-                            <tr><td><strong>9:15 – 9:45</strong></td><td>Morning Meeting / Core</td></tr>
-                            <tr><td><strong>9:45 – 11:15</strong></td><td>Math Block</td></tr>
-                            <tr><td><strong>11:15 – 11:35</strong></td><td>Science / Social Studies</td></tr>
-                            <tr><td><strong>11:35 – 12:20</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
-                            <tr><td><strong>12:20 – 1:05</strong></td><td>ELA / Writing</td></tr>
-                            <tr><td><strong>1:05 – 1:35</strong></td><td class="highlight-green">Lunch Break</td></tr>
-                            <tr><td><strong>1:35 – 2:05</strong></td><td class="highlight-green">Recess</td></tr>
-                            <tr><td><strong>2:05 – 3:45</strong></td><td>ELA Reading / Intervention</td></tr>
-                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                    <div class="schedule-block">
-                        <h4>Wednesday Schedule</h4>
-                        <table class="schedule-table">
-                            <tr><td><strong>9:15 – 10:00</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
-                            <tr><td><strong>10:00 – 11:00</strong></td><td>Math Review</td></tr>
-                            <tr><td><strong>11:00 – 12:00</strong></td><td>ELA Work</td></tr>
-                            <tr><td><strong>12:00 – 12:45</strong></td><td>Science Activity</td></tr>
-                            <tr><td><strong>12:45 – 1:15</strong></td><td class="highlight-green">Lunch Break</td></tr>
-                            <tr><td><strong>1:15 – 1:45</strong></td><td class="highlight-green">Recess</td></tr>
-                            <tr><td><strong>1:45 – 3:30</strong></td><td>Class Meeting / Fun Mid-Week</td></tr>
-                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
+.tab-navigation-bar {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 8px 8px 0 8px;
+    gap: 4px;
+}
 
-            <div id="martin-tab" class="tab-content">
-                <div class="schedule-header">
-                    <h3>Mr. Martin's Classroom</h3>
-                    <p>✨ <strong>Class Specials Rotation:</strong> Day 1: Technology / Day 2: Technology / Day 3: Technology / Day 4: Technology / Day 5: Technology</p>
-                </div>
-                <div class="schedule-grid">
-                    <div class="schedule-block">
-                        <h4>M / T / Th / F Schedule</h4>
-                        <table class="schedule-table">
-                            <tr><td><strong>9:15 – 9:45</strong></td><td>Morning Meeting / Core</td></tr>
-                            <tr><td><strong>9:45 – 11:15</strong></td><td>Math Block</td></tr>
-                            <tr><td><strong>11:15 – 11:35</strong></td><td>Science / Social Studies</td></tr>
-                            <tr><td><strong>11:35 – 12:20</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
-                            <tr><td><strong>12:20 – 1:05</strong></td><td>ELA / Writing</td></tr>
-                            <tr><td><strong>1:05 – 1:35</strong></td><td class="highlight-green">Lunch Break</td></tr>
-                            <tr><td><strong>1:35 – 2:05</strong></td><td class="highlight-green">Recess</td></tr>
-                            <tr><td><strong>2:05 – 3:45</strong></td><td>ELA Reading / Intervention</td></tr>
-                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                    <div class="schedule-block">
-                        <h4>Wednesday Schedule</h4>
-                        <table class="schedule-table">
-                            <tr><td><strong>9:15 – 10:00</strong></td><td class="highlight-blue">Specials Rotation</td></tr>
-                            <tr><td><strong>10:00 – 11:00</strong></td><td>Math Review</td></tr>
-                            <tr><td><strong>11:00 – 12:00</strong></td><td>ELA Work</td></tr>
-                            <tr><td><strong>12:00 – 12:45</strong></td><td>Science Activity</td></tr>
-                            <tr><td><strong>12:45 – 1:15</strong></td><td class="highlight-green">Lunch Break</td></tr>
-                            <tr><td><strong>1:15 – 1:45</strong></td><td class="highlight-green">Recess</td></tr>
-                            <tr><td><strong>1:45 – 3:30</strong></td><td>Class Meeting / Fun Mid-Week</td></tr>
-                            <tr><td><strong>3:45</strong></td><td>Dismissal</td></tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.2s;
+}
 
-            <div id="patrol-tab" class="tab-content">
-                <div class="schedule-header">
-                    <h3>🛡️ Safety Patrol Operations Desk</h3>
-                    <p>Track team dates and assigned duty layouts dynamically.</p>
-                </div>
-                <div class="dashboard-grid">
-                    <div class="card patrol-card">
-                        <h4>Current Active Team Roster</h4>
-                        <div id="team-display" class="team-status-badge">Checking the calendar...</div>
-                        <ul id="roster-list" class="roster-list-container">
-                            </ul>
-                    </div>
+.tab-btn:hover {
+    color: #0f172a;
+    background-color: #edf2f7;
+}
 
-                    <div class="card search-card">
-                        <h4>🔎 Lookup Assignments by Student Name</h4>
-                        <p class="search-instructions">Enter a first name, last name, or full name below to see their active Safety Patrol unit, shift assignment, and location post.</p>
-                        <div class="search-bar-row">
-                            <input type="text" id="student-search" placeholder="e.g. Mario Tate">
-                            <button onclick="searchStudent()" class="btn-search">Search</button>
-                        </div>
-                        <div id="search-result"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+.tab-btn.active {
+    color: #3b82f6;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-bottom-color: transparent;
+    position: relative;
+    top: 1px;
+}
 
-    </main>
+/* Tab Panel Display Framework */
+.tab-content {
+    display: none;
+    padding: 25px;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.tab-content.active-content {
+    display: block;
+}
+
+.schedule-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 12px;
+}
+
+.schedule-header h3 {
+    font-size: 20px;
+    color: #0f172a;
+}
+
+.schedule-header p {
+    font-size: 14px;
+    color: #3b82f6;
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+/* Welcome System Formatting */
+.welcome-section h3 {
+    font-size: 22px;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.welcome-section p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #475569;
+}
+
+.guide-box {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.guide-box h4 {
+    font-size: 16px;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.guide-box ul {
+    list-style-position: inside;
+    font-size: 14px;
+    color: #475569;
+}
+
+.guide-box li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Schedule Table Grid Layout */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.schedule-block {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.schedule-block h4 {
+    font-size: 15px;
+    color: #1e293b;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.schedule-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.schedule-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Schedule Colors Highlights */
+.highlight-blue {
+    color: #2563eb;
+    font-weight: 600;
+    background-color: #eff6ff;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+.highlight-green {
+    color: #16a34a;
+    font-weight: 600;
+    background-color: #f0fdf4;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+/* Dashboard Widgets Split System */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04);
+    border: 1px solid #e2e8f0;
+}
+
+/* Safety Patrol Live Badges */
+.team-status-badge {
+    padding: 14px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.card h4 {
+    font-size: 13px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 4px;
+}
+
+.roster-list-container {
+    list-style-type: none;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.roster-list-container li {
+    padding: 10px 12px;
+    background: #f8fafc;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #334155;
+    border-left: 4px solid #cbd5e1;
+    line-height: 1.4;
+}
+
+/* Search Actions Engine Styles */
+.search-instructions {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.search-bar-row {
+    display: flex;
+    gap: 10px;
+}
+
+#student-search {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+    outline: none;
+}
+
+#student-search:focus {
+    border-color: #3b82f6;
+}
+
+.btn-search {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-search:hover {
+    background-color: #2563eb;
+}
